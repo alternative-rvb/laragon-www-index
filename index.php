@@ -154,7 +154,7 @@ if (!empty($_GET['q'])) {
   else :
   ?>
     <aside>
-      <p class="alert">There is no directories, create your first project now</p>
+      <p class="alert">There are no directories, create your first project now</p>
       <div>
         <img src="https://i.imgur.com/3Sgu8XI.png" alt="Offline">
       </div>
