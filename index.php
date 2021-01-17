@@ -121,18 +121,38 @@ if (!empty($_GET['q'])) {
     <h1 class="header__item header--title" title="Laragon">Laragon</h1>
   </header>
   <main>
-    <p>
-      <?php print($_SERVER['SERVER_SOFTWARE']); ?>
-    </p>
-    <p>
-      PHP version: <?php print phpversion(); ?> <span><a title="phpinfo()" href="/?q=info">info</a></span>
-    </p>
-    <p>
-      Document Root: <?php print($_SERVER['DOCUMENT_ROOT']); ?>
-    </p>
-    <p>
-      <a title="Getting Started" href="https://laragon.org/docs">Getting Started</a>
-    </p>
+    <div>
+      <p>
+        <?php print($_SERVER['SERVER_SOFTWARE']); ?>
+      </p>
+      <p>
+        PHP version: <?php print phpversion(); ?> <span><a title="phpinfo()" href="/?q=info">info</a></span>
+      </p>
+      <p>
+        Document Root: <?php print($_SERVER['DOCUMENT_ROOT']); ?>
+      </p>
+      <p>
+        <a title="Getting Started" href="https://laragon.org/docs" target="_blank">Getting Started</a>
+      </p>
+    </div>
+    <div>
+      <?php
+      $phpMyAdmin = 'http://localhost/phpmyadmin/';
+      $file_headers = @get_headers($phpMyAdmin);
+      if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') :
+        $exists = false;
+      ?>
+        <p class="alert">Please install phpMyAdmin</p>
+      <?php
+      else :
+        $exists = true;
+      ?>
+
+        <a id="databaseLink" href="<?php echo $phpMyAdmin; ?>" target="_blank">phpMyAdmin</a>
+      <?php
+      endif;
+      ?>
+    </div>
   </main>
   <?php
   $dirList = glob('*', GLOB_ONLYDIR);
