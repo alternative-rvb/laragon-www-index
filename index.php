@@ -147,7 +147,6 @@ if (!empty($_GET['q'])) {
       else :
         $exists = true;
       ?>
-
         <a id="databaseLink" href="<?php echo $phpMyAdmin; ?>" target="_blank"><img src="https://i.imgur.com/kHv5dAy.png" alt="phpMyAdmin" height="50"></a>
       <?php
       endif;
