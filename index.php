@@ -152,7 +152,7 @@ if (!empty($_GET['q'])) {
       endif;
       ?>
 
-      
+     <!-- Lien vers phpMyAdmin  -->
     </div>
   </main>
   <?php
