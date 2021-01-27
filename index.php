@@ -152,11 +152,16 @@ if (!empty($_GET['q'])) {
       endif;
       ?>
 
-     <!-- Lien vers phpMyAdmin  -->
+      <!-- Lien vers phpMyAdmin  -->
     </div>
   </main>
   <?php
+  // 
   $dirList = glob('*', GLOB_ONLYDIR);
+  usort($dirList, function ($a, $b) {
+    return filemtime($b) - filemtime($a);
+  });
+
   if ($dirList != NULL) :
   ?>
     <nav>
